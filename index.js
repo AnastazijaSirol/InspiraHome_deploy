@@ -30,13 +30,6 @@ sequelize.sync().then(() => {
   console.log('Database & tables created!');
 });
 
-const FRONTEND_DIR = path.join(__dirname, 'dist');
-app.use(express.static(FRONTEND_DIR));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(FRONTEND_DIR, 'index.html'));
-});
-
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
